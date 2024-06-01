@@ -7,9 +7,10 @@ def display_notes(note_list):
     """
     os.system("cls")
     print("все заметки:".upper())
-    for note in note_list:
-        print(note)
-
+    for index , note in enumerate(note_list):
+        if index == 0:
+            continue
+        print(f'({index}) {note}')
 
 def add_note(text,notes):
     """
@@ -36,4 +37,9 @@ def load_from_file(file_name):
 
 def delete_note(index,notes):
     del notes[index]
+    return notes
+
+def update_note(notes):
+    note_index = int(input("введите номер заметки которую хотите отредактировать:"))
+    notes[note_index] = input("введите новый текст заметки:")
     return notes
